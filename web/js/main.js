@@ -50,7 +50,7 @@ const fond = svg.append("g");
 
 fond.selectAll("path")
 	// La variable geojson_fond est créée dans le fichier JS qui contient le GeoJSON
-	.data(geojson_fond.features)
+	.data(geojson_pays.features)
 	.enter()
 	.append("path")
 	.attr("d", map)
@@ -81,7 +81,20 @@ fond.selectAll("path")
 	.style("stroke", "grey")
 	.style("stroke-width", 0);
 
+const ville = svg.append("g")
 
+ville.selectAll("circle")
+	.data(geojson_ville.features)
+	.enter()
+	.append("circle")
+	.attr("r", "5px")
+	.attr("cx", function(f){return projection(f.geometry.coordinates)[0];})
+	.attr("cy", function(f){return projection(f.geometry.coordinates)[1];})
+	.attr("fill", "#44659b")
+	.attr("r", function(f){
+		let r = Math.round((5 / 2) * Math.sqrt(f.properties["2022"]));
+		return r+"px";
+	})
 
 
 // Ajout d'un groupe (lgv) au SVG (svg)
@@ -254,3 +267,17 @@ $("#action7").click(function(){
 			}
 		});
 });
+
+$("#myRange").change(function(){
+	let value = $('#myRange').val()
+	ville.selectAll("circle")
+		.attr("r", function(f){
+			if (f.properties[String(value)] == "NaN"){
+				return "0px";
+			}else{
+				let r = Math.round((5 / 2) * Math.sqrt(f.properties[String(value)]));
+				return r+"px";
+			}
+			
+		})
+})
