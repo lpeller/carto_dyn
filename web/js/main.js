@@ -50,7 +50,7 @@ const fond = svg.append("g");
 
 fond.selectAll("path")
 	// La variable geojson_fond est créée dans le fichier JS qui contient le GeoJSON
-	.data(geojson_pays.features)
+	.data(geojson_fond.features)
 	.enter()
 	.append("path")
 	.attr("d", map)
@@ -103,7 +103,7 @@ etape.selectAll("path")
 	.enter()
 	.append("path")
 	.attr("d", map)
-	.style("stroke", "yellow")
+	.style("stroke", "#282828")
 	.style("stroke-width", 2)
 
 
