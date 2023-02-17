@@ -1,13 +1,143 @@
 body {
 	width:100%;
-	font-family:'gotham', sans-serif;
+	font-family:'Open Sans Condensed', sans-serif;
 	background-color:#ffffff;
 }
 
-#rectangle{
-    width:200px;
-    height:100px;
-    background:#282828;
+#logo_res {
+	padding:20px 2px 20px 2px;
+}
+
+#liens{
+	top : 0px;
+	color : #ffffff;
+	padding-bottom: 14px;
+	height: 45px;
+	background:#282828;
+}
+
+#parcours{
+	top : 45px;
+	color : #ffffff;
+	padding-bottom: 14px;
+	height: 100px;
+	font-weight: bold;
+}
+
+a[id = "nav"]:link {
+  color: #000000;
+	text-decoration: none;
+}
+a[id = "nav"]:visited {
+  color: #000000;
+	text-decoration: none;
+}
+a[id = "nav"]:hover {
+  color: #282828;
+	text-decoration:none;
+	border-bottom:4px solid #ffff00;
+}
+a[id = "nav"]:active {
+  color: #282828;
+	text-decoration:none;
+	font-weight: bolder;
+}
+
+a[id = "lien1"]:link {
+  color: #ffffff;
+	text-decoration: none;
+}
+a[id = "lien1"]:visited {
+  color: #ffffff;
+	text-decoration: none;
+}
+a[id = "lien1"]:hover {
+  color: #ffffff;
+	text-decoration:none;
+	border-bottom:2px solid #ffff00;
+}
+a[id = "lien1"]:active {
+  color: #ffff00;
+	text-decoration:none;
+	font-weight: bolder;
+}
+
+#lien1{
+	padding-right: 3px;
+	padding-left: 3px;
+	padding-bottom: 12px;
+}
+
+#liens2{
+	position: relative;
+	left : 1300px;
+	bottom : 40px;
+}
+
+#liens1{
+	position: relative;
+	left:200px;
+}
+
+#reseau{
+	position: relative;
+	left : 900px;
+	bottom : 20px;
+}
+
+#logo_tis {
+	padding-left: 15px;
+	padding-right: 10px;
+	margin-top: 10px;
+}
+
+a[id = "logo_res"]:link {
+	text-decoration: none;
+}
+a[id = "logo_res"]:visited {
+	text-decoration: none;
+}
+a[id = "logo_res"]:hover {
+  fill: #ffff00;
+	text-decoration:none;
+}
+a[id = "logo_res"]:active {
+  fill: #ffff00;
+}
+
+
+#tdf_logo{
+	width: 150px;
+	height: auto;
+}
+
+#logo_men{
+	position : relative;
+	top : 17px;
+	padding-left: 10px;
+}
+
+#parc_l{
+	top : 30px;
+	position:relative;
+	left: 200px;
+}
+
+#parc_r{
+	position : relative;
+	left: 1500px;
+	bottom : 143px;
+}
+
+#logo_tour{
+	position : relative;
+	left: 45%;
+}
+
+#nav{
+	padding-right:10px;
+	padding-left: 10px;
+	padding-bottom: 20px;
 }
 
 #conteneur {
@@ -19,10 +149,7 @@ body {
 
 /* ENTETE */
 
-header {
-	margin:0 auto 0 auto;
-	background-color:#282828;
-}
+
 
 /* CONTENU */
 
@@ -31,6 +158,7 @@ article {
 	font-size:14px;
 	background-color:#fafafa;
 }
+
 
 article h1 {
 	padding-bottom:20px;
@@ -41,7 +169,7 @@ article h1 {
 
 article h2 {
 	padding-bottom:15px;
-	font-family:'gotham',serif;
+	font-family:'Open Sans Condensed',sans-serif;
 	font-weight:bold;
 	font-size:18px;
 }
@@ -258,11 +386,4 @@ input[type="range"]::-ms-thumb{
 input[type="range"]:active::-webkit-slider-thumb{
     background-color: #ffffff;
     border: 3px solid #e39f24;
-}
-
-.range_value{
-	margin: 5px;
-	padding: 5px;
-	border: solid 1px;
-	border-radius: 2px;
 }
