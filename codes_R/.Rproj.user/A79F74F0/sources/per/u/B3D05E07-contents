@@ -1,0 +1,18 @@
+# installer et importer la bibliothèque rvest
+install.packages("rvest")
+library(rvest)
+
+# lire la page d'accueil
+url <- "https://www.letour.fr/fr/histoire"
+page <- read_html(url)
+
+# extraire les liens vers les pages des étapes
+stage_links <- page %>%
+  html_nodes("a[href*='/stages/']") %>%
+  html_attr("href")
+
+# créer les liens complets
+full_links <- paste0("https://www.letour.fr", stage_links)
+
+# afficher les liens
+cat(full_links, sep = "\n")
