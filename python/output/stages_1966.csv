@@ -1,0 +1,26 @@
+"","id","n","annee","depart","arrivee","winner"
+"1",1,"Étape 1","21/06/1966","Nancy","Charleville-Mézières","RUDI ALTIG"
+"2",2,"Étape 2","22/06/1966","Charleville-Mézières","Tournai","GUIDO REYBROECK"
+"3",3,"Étape 3.1","23/06/1966","Tournai","Tournai",NA
+"4",4,"Étape 3.2","23/06/1966","Tournai","Dunkerque","WILLY PLANCKAERT"
+"5",5,"Étape 4","24/06/1966","Dunkerque","Dieppe","FRANCO BITOSSI"
+"6",6,"Étape 5","25/06/1966","Dieppe","Caen","EDWARD SELS"
+"7",7,"Étape 6","26/06/1966","Caen","Angers","ALBERT VAN VLIERBERGHE"
+"8",8,"Étape 7","27/06/1966","Angers","Royan","WILLY PLANCKAERT"
+"9",9,"Étape 8","28/06/1966","Royan","Bordeaux","GERBEN KARSTENS"
+"10",10,"Étape 9","29/06/1966","Bordeaux","Bayonne","TOMMASO DE PRA"
+"11",11,"Étape 10","30/06/1966","Bayonne","Pau","MARCELLO MUGNAINI"
+"12",12,"Étape 11","01/07/1966","Pau","Luchon","RUDI ALTIG"
+"13",13,"Étape 12","03/07/1966","Luchon","Revel","GEORGES VANDENBERGHE"
+"14",14,"Étape 13","04/07/1966","Revel","Sète",NA
+"15",15,"Étape 14.1","05/07/1966","Montpellier","Aubenas","LUIS OTANO"
+"16",16,"Étape 14.2","05/07/1966","Aubenas","Vals-les-Bains","JULIO JIMENEZ"
+"17",17,"Étape 15","06/07/1966","Privas","Bourg-d'Oisans","FRANCO BITOSSI"
+"18",18,"Étape 16","07/07/1966","Bourg-d'Oisans","Briançon","EDDY SCHUTZ"
+"19",19,"Étape 17","08/07/1966","Briançon","Turin","FERDINAND BRACKE"
+"20",20,"Étape 18","10/07/1966","Ivrea","Chamonix","HENK NIJDAM"
+"21",21,"Étape 19","11/07/1966","Chamonix","Saint-Etienne","PIERRE BEUFFEUIL"
+"22",22,"Étape 20","12/07/1966","Saint-Etienne","Montluçon",NA
+"23",23,"Étape 21","13/07/1966","Montluçon","Orléans",NA
+"24",24,"Étape 22.1","14/07/1966","Orléans","Rambouillet",NA
+"25",25,"Étape 22.2","14/07/1966","Rambouillet","Paris",NA

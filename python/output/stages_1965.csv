@@ -1,0 +1,25 @@
+"","id","n","annee","depart","arrivee","winner"
+"1",1,"Étape 1.1","22/06/1965","Cologne","Liège",NA
+"2",2,"Étape 1.2","22/06/1965","Liège","Liège","BERNARD VAN DE KERKHOVE"
+"3",3,"Étape 2","23/06/1965","Liège","Roubaix","FELICE GIMONDI"
+"4",4,"Étape 3","24/06/1965","Roubaix","Rouen","EDGARD SORGELOOS"
+"5",5,"Étape 4","25/06/1965","Caen","Saint-Brieuc",NA
+"6",6,"Étape 5.1","26/06/1965","Saint-Brieuc","Chateaulin","GUIDO REYBROECK"
+"7",7,"Étape 5.2","26/06/1965","Chateaulin","Chateaulin","EDWARD SELS"
+"8",8,"Étape 6","27/06/1965","Quimper","La Baule","JOHAN DE ROO"
+"9",9,"Étape 7","28/06/1965","La Baule","La Rochelle","JULIO JIMENEZ"
+"10",10,"Étape 8","29/06/1965","La Rochelle","Bordeaux","GUIDO REYBROECK"
+"11",11,"Étape 9","30/06/1965","Dax","Bagnères-de-Bigorre","JOSÉ PEREZ LLACER"
+"12",12,"Étape 10","01/07/1965","Bagnères-de-Bigorre","Ax-les-Thermes","JAN JANSSEN"
+"13",13,"Étape 11","02/07/1965","Ax-les-Thermes","Barcelone","ADRIANO DURANTE"
+"14",14,"Étape 12","04/07/1965","Barcelone","Perpignan","RAYMOND POULIDOR"
+"15",15,"Étape 16","04/07/1965","Gap","Briançon","GIUSEPPE FEZZARDI"
+"16",16,"Étape 13","05/07/1965","Perpignan","Montpellier","JOAQUIM GALERA"
+"17",17,"Étape 14","06/07/1965","Montpellier","Mont Ventoux","JULIO JIMENEZ"
+"18",18,"Étape 15","07/07/1965","Carpentras","Gap","FELICE GIMONDI"
+"19",19,"Étape 17","09/07/1965","Briançon","Aix-les-Bains","RIK VAN LOOY"
+"20",20,"Étape 18","10/07/1965","Aix-les-Bains","Mont Revard","MICHAËL WRIGHT"
+"21",21,"Étape 19","11/07/1965","Mont Revard","Lyon","GERBEN KARSTENS"
+"22",22,"Étape 20","12/07/1965","Lyon","Auxerre","FELICE GIMONDI"
+"23",23,"Étape 21","13/07/1965","Auxerre","Versailles",NA
+"24",24,"Étape 22","14/07/1965","Versailles","Paris",NA
