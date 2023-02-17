@@ -1,11 +1,17 @@
 body {
 	width:100%;
-	font-family:'Montserrat', sans-serif;
-	background-color:#e9ecf0;
+	font-family:'gotham', sans-serif;
+	background-color:#ffffff;
+}
+
+#rectangle{
+    width:200px;
+    height:100px;
+    background:#282828;
 }
 
 #conteneur {
-	width:1000px;
+	width:1280px;
 	margin:auto;
 	text-align:justify;
 	color:#16212c;
@@ -14,9 +20,8 @@ body {
 /* ENTETE */
 
 header {
-	margin:0 auto 30px auto;
-	padding:20px;
-	background-color:#ffffff;
+	margin:0 auto 0 auto;
+	background-color:#282828;
 }
 
 /* CONTENU */
@@ -24,19 +29,19 @@ header {
 article {
 	padding:20px 20px 20px 20px;
 	font-size:14px;
-	background-color:#ffffff;
+	background-color:#fafafa;
 }
 
 article h1 {
 	padding-bottom:20px;
-	font-family:'Bitter',serif;
+	font-family:"Open Sans Condensed",sans-serif;
 	font-weight:bold;
 	font-size:28px;
 }
 
 article h2 {
 	padding-bottom:15px;
-	font-family:'Bitter',serif;
+	font-family:'gotham',serif;
 	font-weight:bold;
 	font-size:18px;
 }
@@ -55,12 +60,13 @@ section {
 
 article section .carte {
 	margin-bottom:5px;
-	width:960px;
-	height:600px;
+	margin-left:80px;
+	width:800px;
+	height:700px;
 }
 
 article section #carte1 {
-	background-color:#a5d2e2;
+	background-color:#ffffff;
 }
 
 article section #carte2 {
