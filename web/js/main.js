@@ -93,20 +93,24 @@ labels.selectAll("text")
 	.filter(d => ["IND","BRA","RUS","UKR","IRN","SAU","ESP","TUR","DZA","LBY","EGY"].indexOf(d.properties.ISO_A3) < 0)
 	.remove();
 
-// Ajout d'un groupe (depts) au SVG (svg)
+// Ajout d'un groupe (fond) au SVG (svg)
 
-const depts = svg.append("g");
+const fond = svg.append("g");
 
-depts.selectAll("path")
-	// La variable geojson_depts est créée dans le fichier JS qui contient le GeoJSON
-	.data(geojson_depts.features)
+fond.selectAll("path")
+	// La variable geojson_fond est créée dans le fichier JS qui contient le GeoJSON
+	.data(geojson_fond.features)
 	.enter()
 	.append("path")
 	.attr("d", map)
 	// Sémiologie (par défaut) des objets
 	.style("fill", "#f2ebcb")
 	.style("stroke", "grey")
-	.style("stroke-width", 0.4);
+	.style("stroke-width", 0);
+
+
+
+
 
 // Ajout d'un groupe (lgv) au SVG (svg)
 
@@ -150,7 +154,7 @@ pts.selectAll("circle")
 /***************************************** CHANGER LE STYLE DES OBJETS *****/
 /***************************************************************************/
 
-depts.selectAll("path")
+fond.selectAll("path")
 	.filter(d => d.properties.CODE_REG == "11")
 	.style("fill", "orange");
 
@@ -160,7 +164,7 @@ depts.selectAll("path")
 
 // Sans aucune transition
 
-depts.selectAll("path")
+fond.selectAll("path")
 	.filter(d => d.properties.CODE_DEPT == "86")
 	.on("mouseover", function(d) {
 		d3.select(this)
@@ -173,7 +177,7 @@ depts.selectAll("path")
 
 // Avec une transition
 
-depts.selectAll("path")
+fond.selectAll("path")
 	.filter(d => d.properties.CODE_DEPT == "16")
 	.on("mouseover", function(d) {
 		d3.select(this)
@@ -192,7 +196,7 @@ depts.selectAll("path")
 /***************************** PREVOIR UNE ACTION AU CLIC SUR UN OBJET *****/
 /***************************************************************************/
 
-depts.selectAll("path")
+fond.selectAll("path")
 	.filter(d => d.properties.CODE_DEPT == "79")
 	.on("mouseover", function(e) {
 		d3.select(this).style("cursor", "pointer");
@@ -232,7 +236,7 @@ $("#action1").click(function(){
 
 $("#action2").click(function(){
 	window.setTimeout(function(){
-		alert("Vous avez attendu 3 secondes, mais ça valait le coup ! Il y a " + depts.selectAll("path").data().length + " départements");
+		alert("Vous avez attendu 3 secondes, mais ça valait le coup ! Il y a " + fond.selectAll("path").data().length + " départements");
 	}, 3000); // 3000 millisecondes
 });
 
@@ -269,7 +273,7 @@ $("#action6").click(function(){
 });
 
 $("#action7").click(function(){
-	depts.selectAll("path")
+	fond.selectAll("path")
 		.style("fill", function(d){
 			if (parseInt(d.properties.CODE_DEPT) < 50) {
 				return "#fbedff";
