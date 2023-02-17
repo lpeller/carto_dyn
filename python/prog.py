@@ -67,7 +67,7 @@ for file in liste_path:
         data_dict[file[-8:-4]] = dico1
 
 villeJson = {"type": "FeatureCollection","features":[]}
-print(liste_ville)
+#print(liste_ville)
 for el in liste_ville:
     feature = {"type": "Feature",
                "properties": {},
@@ -84,13 +84,27 @@ for el in liste_ville:
             feature["properties"][a] = i
     villeJson["features"].append(feature)
         
+etapeJson = {"type": "FeatureCollection","features":[]}
+for year in data_dict:
+    for etape in data_dict[year]:
+        feature = {"type": "Feature",
+                   "properties": {},
+                   "geometry": {"coordinates": [],"type": "LineString"}}
+        feature["properties"]["annee"] = year
+        feature["properties"]["date"] = data_dict[year][etape]["annee"]
+        feature["properties"]["etape"] = etape
+        feature["properties"]["depart"] = data_dict[year][etape]["depart"]
+        feature["properties"]["arrivee"] = data_dict[year][etape]["arrivee"]
+        feature["properties"]["winner"] = data_dict[year][etape]["winner"]
+        feature["geometry"]["coordinates"] = data_dict[year][etape]["geometry"]["coordinates"]
+        etapeJson["features"].append(feature)
     
-export_path = os.getcwd()+"\\etape.json"
+export_path = os.getcwd()+"\\etape.geojson"
 with open(export_path, 'w') as json_file_handler:
-    json_file_handler.write(json.dumps(data_dict, indent = 4))
+    json_file_handler.write(json.dumps(etapeJson, indent = 4))
 
-export_path = os.getcwd()+"\\ville.geojson"
+"""export_path = os.getcwd()+"\\ville.geojson"
 with open(export_path, 'w') as json_file_handler:
-    json_file_handler.write(json.dumps(villeJson, indent = 4))
+    json_file_handler.write(json.dumps(villeJson, indent = 4))"""
     
 #print(liste_ville)
