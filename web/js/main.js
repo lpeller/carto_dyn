@@ -2,13 +2,13 @@
 /************************************************ CREATION DE LA CARTE *****/
 /***************************************************************************/
 
-const width = 960, height = 600;
+const width = 800, height = 700;
 
 const map = d3.geoPath();
 
 const projection = d3.geoMercator()
-	.center([2.5, 46.5])
-	.scale(2250)
+	.center([2.5, 49])
+	.scale(1600)
 	.translate([width/2, height/2]);
 
 map.projection(projection);
