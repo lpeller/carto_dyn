@@ -50,7 +50,7 @@ const fond = svg.append("g");
 
 fond.selectAll("path")
 	// La variable geojson_fond est créée dans le fichier JS qui contient le GeoJSON
-	.data(geojson_pays.features)
+	.data(geojson_fond.features)
 	.enter()
 	.append("path")
 	.attr("d", map)
@@ -278,6 +278,6 @@ $("#myRange").change(function(){
 				let r = Math.round((5 / 2) * Math.sqrt(f.properties[String(value)]));
 				return r+"px";
 			}
-			
+
 		})
 })
