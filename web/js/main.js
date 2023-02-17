@@ -24,22 +24,6 @@ const svg = d3.select("#carte1")
 // Pour une carte du monde, on peut changer de projection, de centre et/ou d'échelle
 // Pour en savoir plus sur les projections et d3, consulter https://github.com/d3/d3-geo-projection
 
-const map2 = d3.geoPath();
-
-const projection2 = d3.geoConicConformal()
-	.center([0, 40])
-	.scale(300)
-	.translate([width/2, height/2]);
-
-map2.projection(projection2);
-
-// Ajout d'une image SVG portant l'id svg2 à l'élement HTML qui porte l'id carte2
-
-const svg2 = d3.select('#carte2')
-	.append("svg")
-	.attr("id", "svg2")
-	.attr("width", width)
-	.attr("height", height);
 
 /***************************************************************************/
 /*********************************** AJOUTER DES OBJETS SUR LES CARTES *****/
@@ -59,39 +43,6 @@ pays.selectAll("path")
 	.style("fill", "#f2f0e6")
 	.style("stroke-width", 0);
 
-// Ajout d'un groupe (pays2) au SVG (svg2)
-
-const pays2 = svg2.append("g");
-
-pays2.selectAll("path")
-	// On peut réutiliser la même variable geojson_pays pour une seconde carte
-	.data(geojson_pays.features)
-	.enter()
-	.append("path")
-	.attr("d", map2)
-	.style("fill", "#363636")
-	// Cette fois, on met une épaisseur et une couleur de contour
-	.style("stroke", "white")
-	.style("stroke-width", 0.1);
-
-// Ajout d'un groupe (labels) au SVG (svg2)
-
-const labels = svg2.append("g");
-
-labels.selectAll("text")
-	// On peut réutiliser la même variable geojson_pays pour un second groupe
-	.data(geojson_pays.features)
-	.enter()
-	.append("text")
-	.attr("transform", function(d) {
-		return "translate(" + map2.centroid(d) + ")";
-	})
-	.attr("fill", "white")
-	.style("text-anchor", "middle")
-	.style("font-size", "9px")
-	.text(d => d.properties.ADMIN)
-	.filter(d => ["IND","BRA","RUS","UKR","IRN","SAU","ESP","TUR","DZA","LBY","EGY"].indexOf(d.properties.ISO_A3) < 0)
-	.remove();
 
 // Ajout d'un groupe (fond) au SVG (svg)
 
@@ -104,7 +55,29 @@ fond.selectAll("path")
 	.append("path")
 	.attr("d", map)
 	// Sémiologie (par défaut) des objets
-	.style("fill", "#f2ebcb")
+	.style("fill", function(d){
+		if (d.properties.DN == 0){
+			return "#fcfdfd";
+		} else if (d.properties.DN == 1){
+			return "#fff133";
+		}else if (d.properties.DN == 2){
+			return "#fff102";
+		}else if (d.properties.DN == 3){
+			return "#f9e902";
+		}else if (d.properties.DN == 4){
+			return "#fce904";
+		}else if (d.properties.DN == 5){
+			return "#fada05";
+		}else if (d.properties.DN == 6){
+			return "#f6cb0b";
+		}else if (d.properties.DN == 7){
+			return "#edb318";
+		}else if (d.properties.DN == 8){
+			return "#e39f24";
+		}else if (d.properties.DN == 9){
+			return "#d19321";
+		}
+	})
 	.style("stroke", "grey")
 	.style("stroke-width", 0);
 
@@ -122,6 +95,7 @@ ville.selectAll("circle")
 		let r = Math.round((5 / 2) * Math.sqrt(f.properties["2022"]));
 		return r+"px";
 	})
+
 
 // Ajout d'un groupe (lgv) au SVG (svg)
 
