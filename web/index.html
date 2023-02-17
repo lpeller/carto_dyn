@@ -34,7 +34,22 @@
     		</article>
 				<p class="meta">Promotion Carthagéo 2022 | Le 08/12/2021<br />Par Prénom NOM et Prénom NOM</p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vulputate enim sem, ut accumsan massa finibus ac. Praesent et magna eget ante laoreet commodo. Donec luctus justo tortor, ac luctus ex consequat vitae. Proin sodales euismod turpis, eu consectetur arcu consectetur in. Donec libero tellus, laoreet et lobortis quis, volutpat id libero. Phasellus feugiat volutpat quam, eu semper libero ullamcorper ac. Fusce cursus consequat massa, id pellentesque eros. Nunc augue ante, hendrerit sed turpis quis, vulputate ultricies erat.</p>
-				<input type="range" min="1903" max="2022" value="1903" class="slider" id="myRange">
+				<!--<div id="sidebar_div">
+					<div class="label_range" id="start_range">1903</div>
+					<input type="range" name="range-10a" min="1903" max="2022" value="1903" class="slider" id="myRange">
+					<div class="label_range">2022</div>
+				</div>-->
+				<div class="wrapper">
+					<div id="start_range" class="range_value">1903</div>
+					<div class="container">
+						<div class="slider-track"></div>
+						<input type="range" min="1903" max="2022" value="1903" id="slider-1" oninput="slideOne()">
+						<input type="range" min="1903" max="2022" value="2022" id="slider-2" oninput="slideTwo()">
+					</div>
+					<div id="end_range" class="range_value">2022</div>
+					
+				</div>
+
 				<section>
 					<div class="carte" id="carte1"></div>
 					<div class="info" id="legende">
@@ -50,15 +65,6 @@
 					<div class="info" id="encart">Ceci peut être un encart</div>
 				</section>
 				<p class="meta">Ceci est le titre de la carte.</p>
-				<p class="boutons">
-					<span id="action1">Cb. de pays ?</span>
-					<span id="action2">Cb. de dpts ?</span>
-					<span id="action3">Modifier légende</span>
-					<span id="action4">Cacher ITA+ESP</span>
-					<span id="action5">Afficher LGV</span>
-					<span id="action6">Centrer+Zoomer</span>
-					<span id="action7">Modifier style</span>
-				</p>
 				<div class="more">
 					<p>Ceci est un encart</p>
 				</div>
@@ -84,6 +90,7 @@
 	<script src="js/lgv.js"></script>
 	<script src="js/fond_carte.js"></script>
 	<script src="js/ville.js"></script>
+	<script src="js/etape.js"></script>
 	<!-- PROGRAMME JAVASCRIPT -->
 	<script src="js/main.js"></script>
 </html>

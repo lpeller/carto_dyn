@@ -31,7 +31,7 @@ const svg = d3.select("#carte1")
 
 // Ajout d'un groupe (pays) au SVG (svg)
 
-const pays = svg.append("g");
+/*const pays = svg.append("g");
 
 pays.selectAll("path")
 	// La variable geojson_pays est créée dans le fichier JS qui contient le GeoJSON
@@ -41,7 +41,7 @@ pays.selectAll("path")
 	.attr("d", map)
 	// Sémiologie (par défaut) des objets
 	.style("fill", "#f2f0e6")
-	.style("stroke-width", 0);
+	.style("stroke-width", 0);*/
 
 
 // Ajout d'un groupe (fond) au SVG (svg)
@@ -50,7 +50,7 @@ const fond = svg.append("g");
 
 fond.selectAll("path")
 	// La variable geojson_fond est créée dans le fichier JS qui contient le GeoJSON
-	.data(geojson_fond.features)
+	.data(geojson_pays.features)
 	.enter()
 	.append("path")
 	.attr("d", map)
@@ -96,52 +96,25 @@ ville.selectAll("circle")
 		return r+"px";
 	})
 
+const etape = svg.append("g");
 
-// Ajout d'un groupe (lgv) au SVG (svg)
-
-const lgv = svg.append("g");
-
-lgv.selectAll("path")
-	// La variable geojson_lgv est créée dans le fichier JS qui contient le GeoJSON
-	.data(geojson_lgv.features)
+etape.selectAll("path")
+	.data(geojson_etape.features)
 	.enter()
 	.append("path")
 	.attr("d", map)
-	.style("fill-opacity", 0)
-	.style("stroke", "black")
+	.style("stroke", "yellow")
 	.style("stroke-width", 2)
-	.style("stroke-dasharray", [2, 2])
-	.style("stroke-opacity", 0);
 
-// Ajout d'un groupe (pts) au SVG (svg)
 
-const pts = svg.append("g");
-
-const prefectures = [
-	[0.340784, 46.580421],
-	[-0.46482, 46.323867],
-	[0.156153, 45.648655],
-	[-1.15195, 46.159821]
-];
-
-pts.selectAll("circle")
-	.data(prefectures)
-	.enter()
-	.append("circle")
-	.attr("cx", function (d){return projection(d)[0];})
-	.attr("cy", function (d){return projection(d)[1];})
-	.attr("r", "5px")
-	.attr("fill", "#44659b")
-	.style("stroke", "white")
-	.style("stroke-width", 2);
 
 /***************************************************************************/
 /***************************************** CHANGER LE STYLE DES OBJETS *****/
 /***************************************************************************/
 
-fond.selectAll("path")
+/*fond.selectAll("path")
 	.filter(d => d.properties.CODE_REG == "11")
-	.style("fill", "orange");
+	.style("fill", "orange");*/
 
 /***************************************************************************/
 /****************** CHANGER LE STYLE DES OBJETS AU SURVOL DE LA SOURIS *****/
@@ -149,7 +122,7 @@ fond.selectAll("path")
 
 // Sans aucune transition
 
-fond.selectAll("path")
+/*fond.selectAll("path")
 	.filter(d => d.properties.CODE_DEPT == "86")
 	.on("mouseover", function(d) {
 		d3.select(this)
@@ -159,10 +132,10 @@ fond.selectAll("path")
 		d3.select(this)
 			.style("fill", "#f2ebcb");
 	});
-
+*/
 // Avec une transition
 
-fond.selectAll("path")
+/*fond.selectAll("path")
 	.filter(d => d.properties.CODE_DEPT == "16")
 	.on("mouseover", function(d) {
 		d3.select(this)
@@ -175,26 +148,26 @@ fond.selectAll("path")
 			.transition()
 			.duration(1000) // 1000 millisecondes
 			.style("fill", "#f2ebcb");
-	});
+	});*/
 
 /***************************************************************************/
 /***************************** PREVOIR UNE ACTION AU CLIC SUR UN OBJET *****/
 /***************************************************************************/
 
-fond.selectAll("path")
+/*fond.selectAll("path")
 	.filter(d => d.properties.CODE_DEPT == "79")
 	.on("mouseover", function(e) {
 		d3.select(this).style("cursor", "pointer");
 	})
 	.on("click", function(e, dept) {
 		alert("Je suis le département " + dept.properties.NOM_DEPT + " !")
-	});
+	});*/
 
 /***************************************************************************/
 /************************************************* AJOUTER UNE TOOLTIP *****/
 /***************************************************************************/
 
-const tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
+/*const tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 
 pts.selectAll("circle")
 	.on("mouseover", function(e){
@@ -209,67 +182,24 @@ pts.selectAll("circle")
 	})
 	.on("mouseout", function(d){
 		tooltip.style("left", "-500px").style("top", "-500px");
-	});
+	});*/
 
-/***************************************************************************/
-/**************************** PREVOIR UNE ACTION AU CLIC SUR UN BOUTON *****/
-/***************************************************************************/
 
-$("#action1").click(function(){
-	alert("Il y a " + pays.selectAll("path").data().length + " pays");
-});
+window.onload = function(){
+    slideOne();
+    slideTwo();
+}
+let sliderOne = document.getElementById("slider-1");
+let sliderTwo = document.getElementById("slider-2");
+let displayValOne = document.getElementById("start_range");
+let displayValTwo = document.getElementById("end_range");
+let minGap = 0;
+let sliderTrack = document.querySelector(".slider-track");
+let sliderMaxValue = document.getElementById("slider-1").max;
+let sliderMinValue = document.getElementById("slider-1").min;
 
-$("#action2").click(function(){
-	window.setTimeout(function(){
-		alert("Vous avez attendu 3 secondes, mais ça valait le coup ! Il y a " + fond.selectAll("path").data().length + " départements");
-	}, 3000); // 3000 millisecondes
-});
-
-$("#action3").click(function(){
-	$("#legende").html("<ul><li><span></span>Hey ! J'ai été modifié par un bouton !</li></ul>");
-});
-
-$("#action4").click(function(){
-	pays.selectAll("path")
-		.filter(d => d.properties.SOV_A3 == "ITA" || d.properties.SOV_A3 == "ESP")
-		.style("visibility", "hidden");
-});
-
-$("#action5").click(function(){
-	lgv.selectAll("path").style("stroke-opacity", 1);
-});
-
-$("#action6").click(function(){
-	// Modifier l'échelle afin de zoomer
-	projection.scale(5000);
-	// Modifier le centre (sur Paris)
-	projection.center([2.3474, 48.8547]);
-	// Appliquer la nouvelle projection à tous les objets path du SVG
-	svg.selectAll("path")
-		.transition()
-		.duration(0)
-		.attr("d", map);
-	// Appliquer la nouvelle projection à tous les objets circle du groupe pts
-	pts.selectAll("circle")
-		.transition()
-		.duration(0)
-		.attr("cx", function (d){return projection(d)[0];})
-		.attr("cy", function (d){return projection(d)[1];});
-});
-
-$("#action7").click(function(){
-	fond.selectAll("path")
-		.style("fill", function(d){
-			if (parseInt(d.properties.CODE_DEPT) < 50) {
-				return "#fbedff";
-			} else {
-				return "#eeffeb";
-			}
-		});
-});
-
-$("#myRange").change(function(){
-	let value = $('#myRange').val()
+/*$("#myRange").change(function(){
+	let value = sliderOne.value
 	ville.selectAll("circle")
 		.attr("r", function(f){
 			if (f.properties[String(value)] == "NaN"){
@@ -280,4 +210,69 @@ $("#myRange").change(function(){
 			}
 
 		})
-})
+})*/
+
+function slideOne(){
+    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+        sliderOne.value = parseInt(sliderTwo.value) - minGap;
+    }
+	console.log("toto")
+    displayValOne.textContent = sliderOne.value;
+	ville.selectAll("circle")
+	.attr("r", function(f){
+		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)] 
+		if (valeur == NaN){
+			return "0px";
+		}else{
+			let r = Math.round((5 / 2) * Math.sqrt(valeur));
+			return r+"px";
+		}
+
+	})
+    fillColor();
+}
+function slideTwo(){
+    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+        sliderTwo.value = parseInt(sliderOne.value) + minGap;
+    }
+    displayValTwo.textContent = sliderTwo.value;
+	ville.selectAll("circle")
+	.attr("r", function(f){
+		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)] 
+		if (valeur == NaN){
+			return "0px";
+		}else{
+			let r = Math.round((5 / 2) * Math.sqrt(valeur));
+			return r+"px";
+		}
+	})
+	.style("opacity", function(f){
+		if (f.properties[String(sliderTwo.value)]-f.properties[String(sliderTwo.value-1)]){
+			return 1
+		}else{
+			return 0.3
+		}
+	})
+	.style("fill", function(f){
+		if(f.properties[String(sliderTwo.value)]-f.properties[String(sliderTwo.value-1)]){
+			return "#f9020b"
+		}else{
+			return "#029bf4"
+		}
+	})
+
+	etape.selectAll("path")
+	.style("opacity", function(f){
+		if(f.properties.annee == sliderTwo.value){
+			return 1
+		}else{
+			return 0
+		}
+	})
+    fillColor();
+}
+function fillColor(){
+    percent2 = ((sliderOne.value-sliderMaxValue) / (sliderMinValue-sliderMaxValue)) * 100;
+    percent1 = ((sliderTwo.value-sliderMaxValue) / (sliderMinValue-sliderMaxValue)) * 100;
+    sliderTrack.style.background = `linear-gradient(to left, #dadae5 ${percent1}% , #ffff00 ${percent1}% , #ffff00 ${percent2}%, #dadae5 ${percent2}%)`;
+}
