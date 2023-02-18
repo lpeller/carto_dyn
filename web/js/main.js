@@ -206,25 +206,87 @@ let button_stop = document.getElementById("button_stop")
 button_stop.addEventListener('click',clickstop,false)
 let button_clear = document.getElementById("button_clear")
 button_clear.addEventListener('click',clickclear,false)
-/*$("#myRange").change(function(){
-	let value = sliderOne.value
-	ville.selectAll("circle")
-		.attr("r", function(f){
-			if (f.properties[String(value)] == "NaN"){
-				return "0px";
-			}else{
-				let r = Math.round((5 / 2) * Math.sqrt(f.properties[String(value)]));
-				return r+"px";
-			}
 
-		})
-})*/
+let width_legend = $("#legende").width()
+let height_legend = $("#legende").height()
+const svg2 = d3.select("#legende")
+	.append("svg")
+	.attr("id", "svg1")
+	.attr("width", width_legend)
+	.attr("height", height_legend);
+
+const circle1 = svg2.append('circle')
+					.attr('cx', 30)
+					.attr('cy', 30)
+					.attr('r', "26px")
+					.attr('fill', 'transparent')
+					.style("stroke", "#252525")
+					.style("stroke-width", 1)
+
+
+const text1 = svg2.append('text')
+					.attr('x', 70)
+					.attr('y', 35)
+					.style("font-size", 15)
+					.text("108 : Nombre de passage maximum")
+
+svg2.append('circle')
+	.attr('cx', 30)
+	.attr('cy', 70)
+	.attr('r', "3px")
+	.attr('fill', 'transparent')
+	.style("stroke", "#252525")
+	.style("stroke-width", 1)
+
+svg2.append('text')
+	.attr('x', 70)
+	.attr('y', 75)
+	.style("font-size", 15)
+	.text("1 : Nombre de passage minimum")
+
+svg2.append('circle')
+	.attr('cx', 30)
+	.attr('cy', 100)
+	.attr('r', "10px")
+	.attr('fill', '#f9020b');
+
+svg2.append('text')
+	.attr('x', 70)
+	.attr('y', 105)
+	.style("font-size", 15)
+	.text("Ville étape de l'année courante")
+
+svg2.append('circle')
+	.attr('cx', 30)
+	.attr('cy', 130	)
+	.attr('r', "10px")
+	.attr('fill', '#029bf4')
+	.style('opacity',0.4)
+
+svg2.append('text')
+	.attr('x', 70)
+	.attr('y', 135)
+	.style("font-size", 15)
+	.text("Ville non-étape de l'année courante")
+
+svg2.append('line')
+	.attr('x1', 4)
+	.attr('y1', 170)
+	.attr('x2', 56)
+	.attr('y2', 170)
+	.style("stroke", "#252525")
+	.style("stroke-width", 2)
+
+svg2.append('text')
+	.attr('x', 70)
+	.attr('y', 175)
+	.style("font-size", 15)
+	.text("Étape de l'année courante")
 
 function slideOne(){
     if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
         sliderOne.value = parseInt(sliderTwo.value) - minGap;
     }
-	console.log("toto")
     displayValOne.textContent = sliderOne.value;
 	if (guerre.includes(parseInt(sliderOne.value))){
 		$("#guerre").html("Pas de données cette année")
@@ -235,17 +297,21 @@ function slideOne(){
 		slideTwo()
 		$("#guerre").html("")
 	}
+	let max = 0
 	ville.selectAll("circle")
 	.attr("r", function(f){
 		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)]
+
 		if (valeur == NaN){
 			return "0px";
 		}else{
 			let r = Math.round((5 / 2) * Math.sqrt(valeur));
+			max = Math.max(r, max);
 			return r+"px";
 		}
-
 	})
+	circle1.attr('r', max)
+
     fillColor();
 }
 function slideTwo(){
@@ -261,7 +327,8 @@ function slideTwo(){
 	}else{
 		$("#guerre").html("")
 	}
-
+	let max = 0
+	let max2 = 0
 	ville.selectAll("circle")
 	.attr("r", function(f){
 		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)]
@@ -269,6 +336,8 @@ function slideTwo(){
 			return "0px";
 		}else{
 			let r = Math.round((5 / 2) * Math.sqrt(valeur));
+			max = Math.max(r, max);
+			max2 = Math.max(parseInt(valeur), max2);
 			return r+"px";
 		}
 	})
@@ -276,7 +345,7 @@ function slideTwo(){
 		if (f.properties[String(sliderTwo.value)]-f.properties[String(sliderTwo.value-1)]){
 			return 1
 		}else{
-			return 0.3
+			return 0.4
 		}
 	})
 	.style("fill", function(f){
@@ -301,6 +370,9 @@ function slideTwo(){
 			return 0
 		}	
 	});
+	text1.text(max2+" : Nombre de passage maximum")
+	circle1.attr('r', max)
+	
     fillColor();
 }
 function fillColor(){
@@ -331,7 +403,6 @@ function addEtape(){
 }
 
 function hoverEtape(event){
-	console.log(event.target.parentElement.id)
 	let div = document.getElementById(event.target.parentElement.id)
 	if(event.target.parentElement.id != "liste"){
 		div.style.border = "solid 2px"
@@ -394,3 +465,4 @@ function clickclear(){
 	slideTwo()
 	addEtape()
 }
+
