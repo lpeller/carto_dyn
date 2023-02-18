@@ -50,7 +50,7 @@ const fond = svg.append("g");
 
 fond.selectAll("path")
 	// La variable geojson_fond est créée dans le fichier JS qui contient le GeoJSON
-	.data(geojson_fond.features)
+	.data(geojson_light.features)
 	.enter()
 	.append("path")
 	.attr("d", map)
@@ -220,7 +220,7 @@ function slideOne(){
     displayValOne.textContent = sliderOne.value;
 	ville.selectAll("circle")
 	.attr("r", function(f){
-		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)] 
+		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)]
 		if (valeur == NaN){
 			return "0px";
 		}else{
@@ -238,7 +238,7 @@ function slideTwo(){
     displayValTwo.textContent = sliderTwo.value;
 	ville.selectAll("circle")
 	.attr("r", function(f){
-		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)] 
+		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)]
 		if (valeur == NaN){
 			return "0px";
 		}else{

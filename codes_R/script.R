@@ -13,7 +13,8 @@ url_base = "https://www.letour.fr"
 
 html_main = read_html(url_main)
 
-e = 1
+e = 109
+
 
 
 #BOUCLE
@@ -46,13 +47,14 @@ while(e <= 109){
     html_node(xpath = "/html/body/div/div/table/tbody") %>% 
     html_table()
   
-  
-  table_stage <- table_stage %>% mutate(id = row_number())
+  table_stage$id <- str_extract_all(table_stage$n,"\\(?[0-9,.]+\\)?")
+  table_stage$id <- as.integer(table_stage$id)
+  #table_stage <- table_stage %>% dplyr::mutate(id = as.integer(str_extract_all(n,"\\(?[0-9,.]+\\)?")[[1]]))
   
   table_stage <- merge(x = table_stage, y = table_win, by.x = "id", by.y = "X1", all.x = TRUE)
   
   table_stage$winner = str_extract(table_stage$X3, "[^\n]+")
-  
+  print("5")
   
   
   table_stage <- table_stage[,!names(table_stage) %in% c("X2", "X3")]
