@@ -2,6 +2,7 @@
 /************************************************ CREATION DE LA CARTE *****/
 /***************************************************************************/
 
+const guerre = [1915,1916,1917,1918,1940,1941,1942,1943,1944,1945,1946,1987]
 const width = 800, height = 700;
 
 const map = d3.geoPath();
@@ -50,7 +51,7 @@ const fond = svg.append("g");
 
 fond.selectAll("path")
 	// La variable geojson_fond est créée dans le fichier JS qui contient le GeoJSON
-	.data(geojson_fond.features)
+	.data(geojson_pays.features)
 	.enter()
 	.append("path")
 	.attr("d", map)
@@ -103,8 +104,9 @@ etape.selectAll("path")
 	.enter()
 	.append("path")
 	.attr("d", map)
-	.style("stroke", "#282828")
+	.style("stroke", "yellow")
 	.style("stroke-width", 2)
+	.style("fill","transparent")
 
 
 
@@ -188,6 +190,7 @@ pts.selectAll("circle")
 window.onload = function(){
     slideOne();
     slideTwo();
+	addEtape();
 }
 let sliderOne = document.getElementById("slider-1");
 let sliderTwo = document.getElementById("slider-2");
@@ -218,6 +221,9 @@ function slideOne(){
     }
 	console.log("toto")
     displayValOne.textContent = sliderOne.value;
+	if (guerre.includes(sliderOne.value)){
+
+	}
 	ville.selectAll("circle")
 	.attr("r", function(f){
 		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)] 
@@ -260,7 +266,6 @@ function slideTwo(){
 			return "#029bf4"
 		}
 	})
-
 	etape.selectAll("path")
 	.style("opacity", function(f){
 		if(f.properties.annee == sliderTwo.value){
@@ -268,11 +273,83 @@ function slideTwo(){
 		}else{
 			return 0
 		}
-	})
+	}).style("stroke-width", function(f){
+		if (f.properties.annee == parseInt(sliderTwo.value)){
+			return 2
+		}
+		else{
+			return 0
+		}	
+	});
     fillColor();
 }
 function fillColor(){
     percent2 = ((sliderOne.value-sliderMaxValue) / (sliderMinValue-sliderMaxValue)) * 100;
     percent1 = ((sliderTwo.value-sliderMaxValue) / (sliderMinValue-sliderMaxValue)) * 100;
     sliderTrack.style.background = `linear-gradient(to left, #dadae5 ${percent1}% , #ffff00 ${percent1}% , #ffff00 ${percent2}%, #dadae5 ${percent2}%)`;
+}
+
+function addEtape(){
+	if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+        sliderTwo.value = parseInt(sliderOne.value) + minGap;
+    }
+    let value = sliderTwo.value;
+	let liste = document.getElementById("liste")
+	liste.innerHTML = ""
+	for(el in geojson_etape.features){
+		let proper = geojson_etape.features[el].properties
+		if (proper.annee == parseInt(value)){
+			var div = document.createElement("div");
+			div.setAttribute('class', 'liste_etape')
+			div.setAttribute('id','etape'+proper.etape)
+			div.addEventListener('mouseover',hoverEtape,false)
+			div.addEventListener('mouseout',outEtape,false)
+			div.innerHTML = "<h1>Etape "+proper.etape+"</h1><h2>"+proper.depart+" - "+proper.arrivee+"</h2><h3>Vainqueur : "+proper.winner+"</h3>"
+			liste.appendChild(div)
+		}	
+	}
+}
+
+function hoverEtape(event){
+	console.log(event.target.parentElement.id)
+	let div = document.getElementById(event.target.parentElement.id)
+	if(event.target.parentElement.id != "liste"){
+		div.style.border = "solid 2px"
+		div.style.borderRadius = "2px"
+		let etapeid = event.target.parentElement.id.slice(5)
+		console.log(etapeid)
+		etape.selectAll("path")
+			.style("opacity", function(f){
+				if (f.properties.annee == parseInt(sliderTwo.value)){
+					if(etapeid == f.properties.etape){
+						return 1
+					}
+					else{return 0.5}}
+				else{return 0}	
+			})
+			.style("stroke-width", function(f){
+				if (f.properties.annee == parseInt(sliderTwo.value)){
+					if(etapeid == f.properties.etape){return 3}
+					else{return 2}}
+				else{return 0}	
+			})
+	}
+}
+
+function outEtape(event){
+	let div = document.getElementById(event.target.parentElement.id)
+	div.style.border = "none"
+	slideTwo()
+	/*etape.selectAll("path")
+	.style("opacity", function(f){
+		if(f.properties.annee == sliderTwo.value){
+			return 1
+		}else{
+			return 0
+		}
+	})
+	.style("stroke-width", function(f){
+		if (f.properties.annee == parseInt(sliderTwo.value)){return 2}
+		else{return 0}	
+	})*/
 }

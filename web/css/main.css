@@ -183,26 +183,32 @@ article p.meta {
 }
 
 section {
+	display: grid;
+	grid-template-columns: 900px 1fr;
+	grid-template-rows: 500px 200px;
 	position:relative;
 }
 
 article section .carte {
+	grid-column: 1;
+	grid-row: 1/3;
 	margin-bottom:5px;
 	margin-left:80px;
 	width:800px;
-	height:700px;
 }
 
 article section #carte1 {
 	background-color:#ffffff;
 }
 
-article section #carte2 {
-	background-color:#434569;
+article section #liste{
+	grid-column: 2;
+	overflow-y: scroll;
+	bottom:0px;
+	right:0px;
 }
 
 article section div.info {
-	position:absolute;
 	padding:10px;
 	color:white;
 	font-size:11px;
@@ -210,7 +216,9 @@ article section div.info {
 }
 
 article section #legende {
-	top:20px;
+	grid-row: 2;
+	grid-column: 2;
+	bottom:20px;
 	right:20px;
 	padding-bottom:0;
 }
@@ -232,14 +240,11 @@ article section #legende ul li span {
 }
 
 article section #source {
+	position: absolute;
 	bottom:20px;
-	right:20px;
+	left:100px;
 }
 
-article section #encart {
-	bottom:20px;
-	left:20px;
-}
 
 article section #subtitle {
 	bottom:20px;
@@ -393,4 +398,28 @@ input[type="range"]:active::-webkit-slider-thumb{
 	padding: 5px;
 	border: solid 1px;
 	border-radius: 2px;
+}
+
+#liste{
+	cursor:default;
+}
+#liste h1 {
+	padding-bottom:10px;
+	font-family:"Open Sans Condensed",sans-serif;
+	font-weight:bold;
+	font-size:20px;
+}
+
+#liste h2 {
+	padding-bottom:10px;
+	font-family:'Open Sans Condensed',sans-serif;
+	font-weight:bold;
+	font-size:15px;
+}
+
+#liste h3 {
+	padding-bottom:15px;
+	font-family:'Open Sans Condensed',sans-serif;
+	font-weight:normal;
+	font-size:12px;
 }
