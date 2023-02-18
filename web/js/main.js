@@ -200,7 +200,12 @@ let minGap = 0;
 let sliderTrack = document.querySelector(".slider-track");
 let sliderMaxValue = document.getElementById("slider-1").max;
 let sliderMinValue = document.getElementById("slider-1").min;
-
+let button_play = document.getElementById("button_play")
+button_play.addEventListener('click',click,false)
+let button_stop = document.getElementById("button_stop")
+button_stop.addEventListener('click',clickstop,false)
+let button_clear = document.getElementById("button_clear")
+button_clear.addEventListener('click',clickclear,false)
 /*$("#myRange").change(function(){
 	let value = sliderOne.value
 	ville.selectAll("circle")
@@ -221,8 +226,14 @@ function slideOne(){
     }
 	console.log("toto")
     displayValOne.textContent = sliderOne.value;
-	if (guerre.includes(sliderOne.value)){
-
+	if (guerre.includes(parseInt(sliderOne.value))){
+		$("#guerre").html("Pas de données cette année")
+		$("#annee_info").html("")
+		etape.selectAll("path")
+		.style("opacity", 0)
+	}else{
+		slideTwo()
+		$("#guerre").html("")
 	}
 	ville.selectAll("circle")
 	.attr("r", function(f){
@@ -243,6 +254,14 @@ function slideTwo(){
     }
     displayValTwo.textContent = sliderTwo.value;
 	$("#annee_info").html(sliderTwo.value)
+	if (guerre.includes(parseInt(sliderTwo.value))){
+		$("#guerre").html("Pas de données cette année")
+		etape.selectAll("path")
+		.style("opacity", 0)
+	}else{
+		$("#guerre").html("")
+	}
+
 	ville.selectAll("circle")
 	.attr("r", function(f){
 		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)]
@@ -318,7 +337,6 @@ function hoverEtape(event){
 		div.style.border = "solid 2px"
 		div.style.borderRadius = "2px"
 		let etapeid = event.target.parentElement.id.slice(5)
-		console.log(etapeid)
 		etape.selectAll("path")
 			.style("opacity", function(f){
 				if (f.properties.annee == parseInt(sliderTwo.value)){
@@ -343,3 +361,36 @@ function outEtape(event){
 	slideTwo()
 }
 
+
+function click(){
+	let annee = 1903
+	if(parseInt(sliderTwo.value) == 2022){
+		annee = 1903
+	}else{
+		annee = parseInt(sliderTwo.value)
+	}
+	let liste = document.getElementById("liste")
+	liste.innerHTML = ""
+
+	intervalle = setInterval(function(){
+		annee+=1
+		if(annee == 2022){
+			clearInterval(intervalle)
+		}
+		$("#slider-2").val(annee)
+		slideTwo()
+	},200)
+}
+
+function clickstop(){
+	clearInterval(intervalle)
+	slideTwo()
+	addEtape()
+}
+
+function clickclear(){
+	clearInterval(intervalle)
+	$("#slider-2").val(2022)
+	slideTwo()
+	addEtape()
+}
