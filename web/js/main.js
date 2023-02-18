@@ -104,7 +104,7 @@ etape.selectAll("path")
 	.enter()
 	.append("path")
 	.attr("d", map)
-	.style("stroke", "yellow")
+	.style("stroke", "#252525")
 	.style("stroke-width", 2)
 	.style("fill","transparent")
 
