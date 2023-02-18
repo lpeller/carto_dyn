@@ -1568,8 +1568,8 @@ const geojson_ville = {
             },
             "geometry": {
                 "coordinates": [
-                    5.725123642537842,
-                    47.751915716608465
+                    -1.151369,
+                    46.158902
                 ],
                 "type": "Point"
             }
@@ -7013,8 +7013,8 @@ const geojson_ville = {
             },
             "geometry": {
                 "coordinates": [
-                    5.713976110028652,
-                    45.58062937024434
+                    -0.968698,
+                    45.943058
                 ],
                 "type": "Point"
             }
@@ -29520,7 +29520,7 @@ const geojson_ville = {
             "geometry": {
                 "coordinates": [
                     3.31233,
-                    3.31233
+                    50.85729332522606
                 ],
                 "type": "Point"
             }
@@ -41982,8 +41982,8 @@ const geojson_ville = {
             },
             "geometry": {
                 "coordinates": [
-                    55.44696968693101,
-                    -20.932922387443433
+                    2.3568142900697,
+                    48.93644817799909
                 ],
                 "type": "Point"
             }

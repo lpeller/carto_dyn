@@ -146,7 +146,7 @@
 					<div class="container">
 						<div class="slider-track"></div>
 						<input type="range" min="1903" max="2022" value="1903" id="slider-1" oninput="slideOne()">
-						<input type="range" min="1903" max="2022" value="2022" id="slider-2" oninput="slideTwo()">
+						<input type="range" min="1903" max="2022" value="2022" id="slider-2" oninput="slideTwo()" onchange="addEtape()">
 					</div>
 					<div id="end_range" class="range_value">2022</div>
 
@@ -154,6 +154,7 @@
 
 				<section>
 					<div class="carte" id="carte1"></div>
+					<div id="liste"></div>
 					<div class="info" id="legende">
 						<ul>
 							<li><span></span>Elément 1</li>
@@ -164,7 +165,6 @@
 						</ul>
 					</div>
 					<div class="info" id="source">Ceci peut être une source</div>
-					<div class="info" id="encart">Ceci peut être un encart</div>
 				</section>
 				<p class="meta">Ceci est le titre de la carte.</p>
 				<div class="more">
