@@ -167,6 +167,10 @@
 					<div class="info" id="source">Ceci peut être une source</div>
 				</section>
 				<p class="meta">Ceci est le titre de la carte.</p>
+				<div id = "emprise" class  ="emprise">
+					<button class = "france" id = "bt_fr" onclick="clickfr()">France</button>
+					<button class="europe" id = "bt_eu" onclick="clickeu()" disabled>Europe</button>
+				</div>
 				<div class="more">
 					<p>Ceci est un encart</p>
 				</div>
@@ -187,10 +191,7 @@
 	<script src="https://d3js.org/d3-geo-projection.v4.min.js"></script>
 	<script src="https://d3js.org/d3-tile.v0.0.min.js"></script>
 	<!-- DONNEES (GEOJSON, WGS84) -->
-	<script src="js/depts.js"></script>
-	<script src="js/pays.js"></script>
-	<script src="js/lgv.js"></script>
-	<script src="js/fond_carte.js"></script>
+	<script src="js/frontiere_pays.js"></script>
 	<script src="js/fond_val.js"></script>
 	<script src="js/ville.js"></script>
 	<script src="js/etape.js"></script>

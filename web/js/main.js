@@ -7,6 +7,7 @@ const width = 800, height = 700;
 
 const map = d3.geoPath();
 
+
 const projection = d3.geoMercator()
 	.center([2.5, 49])
 	.scale(1600)
@@ -42,7 +43,7 @@ pays.selectAll("path")
 	.attr("d", map)
 	// Sémiologie (par défaut) des objets
 	.style("fill", "#f2f0e6")
-	.style("stroke-width", 0);*/
+	.style("stroke-width", 0var myMap = svg.selectAll("path"));*/
 
 
 // Ajout d'un groupe (fond) au SVG (svg)
@@ -82,6 +83,19 @@ fond.selectAll("path")
 	.style("stroke", "grey")
 	.style("stroke-width", 0);
 
+const border = svg.append("g");
+
+border.selectAll("path")
+		// La variable geojson_fond est créée dans le fichier JS qui contient le GeoJSON
+		.data(geojson_front.features)
+		.enter()
+		.append("path")
+		.attr("d", map)
+		.style("fill", "transparent")
+		.style("stroke", "#484848")
+		.style("stroke-width", 0.5);
+
+
 const ville = svg.append("g")
 
 ville.selectAll("circle")
@@ -106,19 +120,44 @@ etape.selectAll("path")
 	.attr("d", map)
 	.style("stroke", "#252525")
 	.style("stroke-width", 2)
-	.style("fill","transparent")
+	.style("fill","transparent");
 
 
+
+/*svg.append("line")
+	.attr('x1',function(){return projection(15.21)})
+	.attr('y1',function(){return projection(40)})
+	.attr('x2',function(){return projection(16.11)})
+	.attr('y2',function(){return projection(40)})
+	.style("stroke", "#252525")
+	.style("stroke-width", 5)
+	.style("fill","transparent");*/
 
 /***************************************************************************/
-/***************************************** CHANGER LE STYLE DES OBJETS *****/
+/*****************************var svg = d3.select("#dataviz_basicZoom")
+  .append("svg")
+    .attr("width",  460)
+    .attr("height",  460)
+    .call(d3.zoom().on("zoom", function () {
+       svg.attr("transform", d3.event.transform)
+    }))
+  .append("g")
+************ CHANGER LE STYLE DES OBJETS *****/
 /***************************************************************************/
 
 /*fond.selectAll("path")
 	.filter(d => d.properties.CODE_REG == "11")
 	.style("fill", "orange");*/
 
-/***************************************************************************/
+/******************************var svg = d3.select("#dataviz_basicZoom")
+  .append("svg")
+    .attr("width",  460)
+    .attr("height",  460)
+    .call(d3.zoom().on("zoom", function () {
+       svg.attr("transform", d3.event.transform)
+    }))
+  .append("g")
+*********************************************/
 /****************** CHANGER LE STYLE DES OBJETS AU SURVOL DE LA SOURIS *****/
 /***************************************************************************/
 
@@ -126,7 +165,15 @@ etape.selectAll("path")
 
 /*fond.selectAll("path")
 	.filter(d => d.properties.CODE_DEPT == "86")
-	.on("mouseover", function(d) {
+	.on("mouseover", function(d) {var svg = d3.select("#dataviz_basicZoom")
+  .append("svg")
+    .attr("width",  460)
+    .attr("height",  460)
+    .call(d3.zoom().on("zoom", function () {
+       svg.attr("transform", d3.event.transform)
+    }))
+  .append("g")
+
 		d3.select(this)
 			.style("fill", "orange");
 	})
@@ -201,6 +248,52 @@ let sliderTrack = document.querySelector(".slider-track");
 let sliderMaxValue = document.getElementById("slider-1").max;
 let sliderMinValue = document.getElementById("slider-1").min;
 
+let bt_fr = document.getElementById("bt_fr");
+let bt_eu = document.getElementById("bt_eu");
+
+
+function handleZoom(e) {
+	d3.selectAll('g')
+		.attr('transform', e.transform);
+}
+
+
+function clickfr(){
+	document.getElementById('bt_eu').disabled=false;
+	bt_fr.disabled=true;
+
+	let zoom = d3.zoom()
+		.scaleExtent([0.1, 10])
+		.on('zoom', handleZoom);
+
+	var transform = d3.zoomIdentity.translate(-300, -430).scale(1.8);
+
+
+	d3.select('#carte1')
+		.transition()
+		.call(zoom.transform, transform);
+
+}
+
+
+function clickeu(){
+	document.getElementById('bt_fr').disabled=false;
+	bt_eu.disabled=true;
+	console.log("eu");
+
+	let zoom = d3.zoom()
+		.scaleExtent([0.25, 10])
+		.on('zoom', handleZoom);
+
+	var transform = d3.zoomIdentity;
+
+	d3.select('#carte1')
+		.transition()
+		.call(zoom.transform, transform);
+
+
+
+}
 /*$("#myRange").change(function(){
 	let value = sliderOne.value
 	ville.selectAll("circle")
@@ -279,7 +372,7 @@ function slideTwo(){
 		}
 		else{
 			return 0
-		}	
+		}
 	});
     fillColor();
 }
@@ -306,7 +399,7 @@ function addEtape(){
 			div.addEventListener('mouseout',outEtape,false)
 			div.innerHTML = "<h1>Etape "+proper.etape+"</h1><h2>"+proper.depart+" - "+proper.arrivee+"</h2><h3>Vainqueur : "+proper.winner+"</h3>"
 			liste.appendChild(div)
-		}	
+		}
 	}
 }
 
@@ -325,13 +418,13 @@ function hoverEtape(event){
 						return 1
 					}
 					else{return 0.5}}
-				else{return 0}	
+				else{return 0}
 			})
 			.style("stroke-width", function(f){
 				if (f.properties.annee == parseInt(sliderTwo.value)){
 					if(etapeid == f.properties.etape){return 3}
 					else{return 2}}
-				else{return 0}	
+				else{return 0}
 			})
 	}
 }
@@ -350,7 +443,6 @@ function outEtape(event){
 	})
 	.style("stroke-width", function(f){
 		if (f.properties.annee == parseInt(sliderTwo.value)){return 2}
-		else{return 0}	
+		else{return 0}
 	})*/
 }
-
