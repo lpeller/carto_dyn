@@ -215,6 +215,16 @@ article section div.info {
 	background-color:rgba(0,0,0,0.3);
 }
 
+article section #annee_info{
+	position: absolute;
+	color:black;
+	font-size: 30px;
+	font-weight: bold;
+	font-family:'Open Sans Condensed',sans-serif;
+	background-color: transparent;
+	top:10px;
+	left:100px;
+}
 article section #legende {
 	grid-row: 2;
 	grid-column: 2;

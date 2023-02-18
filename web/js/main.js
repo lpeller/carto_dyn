@@ -242,6 +242,7 @@ function slideTwo(){
         sliderTwo.value = parseInt(sliderOne.value) + minGap;
     }
     displayValTwo.textContent = sliderTwo.value;
+	$("#annee_info").html(sliderTwo.value)
 	ville.selectAll("circle")
 	.attr("r", function(f){
 		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)]
@@ -340,17 +341,5 @@ function outEtape(event){
 	let div = document.getElementById(event.target.parentElement.id)
 	div.style.border = "none"
 	slideTwo()
-	/*etape.selectAll("path")
-	.style("opacity", function(f){
-		if(f.properties.annee == sliderTwo.value){
-			return 1
-		}else{
-			return 0
-		}
-	})
-	.style("stroke-width", function(f){
-		if (f.properties.annee == parseInt(sliderTwo.value)){return 2}
-		else{return 0}	
-	})*/
 }
 
