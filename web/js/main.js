@@ -247,6 +247,83 @@ let minGap = 0;
 let sliderTrack = document.querySelector(".slider-track");
 let sliderMaxValue = document.getElementById("slider-1").max;
 let sliderMinValue = document.getElementById("slider-1").min;
+let button_play = document.getElementById("button_play")
+button_play.addEventListener('click',click,false)
+let button_stop = document.getElementById("button_stop")
+button_stop.addEventListener('click',clickstop,false)
+let button_clear = document.getElementById("button_clear")
+button_clear.addEventListener('click',clickclear,false)
+
+let width_legend = $("#legende").width()
+let height_legend = $("#legende").height()
+const svg2 = d3.select("#legende")
+	.append("svg")
+	.attr("id", "svg1")
+	.attr("width", width_legend)
+	.attr("height", height_legend);
+
+const circle1 = svg2.append('circle')
+					.attr('cx', 30)
+					.attr('cy', 30)
+					.attr('r', "26px")
+					.attr('fill', 'transparent')
+					.style("stroke", "#252525")
+					.style("stroke-width", 1)
+
+
+const text1 = svg2.append('text')
+					.attr('x', 70)
+					.attr('y', 35)
+					.style("font-size", 15)
+					.text("108 : Nombre de passage maximum")
+
+svg2.append('circle')
+	.attr('cx', 30)
+	.attr('cy', 70)
+	.attr('r', "3px")
+	.attr('fill', 'transparent')
+	.style("stroke", "#252525")
+	.style("stroke-width", 1)
+
+svg2.append('text')
+	.attr('x', 70)
+	.attr('y', 75)
+	.style("font-size", 15)
+	.text("1 : Nombre de passage minimum")
+
+svg2.append('circle')
+	.attr('cx', 30)
+	.attr('cy', 100)
+	.attr('r', "10px")
+	.attr('fill', '#f9020b');
+
+svg2.append('text')
+	.attr('x', 70)
+	.attr('y', 105)
+	.style("font-size", 15)
+	.text("Ville étape de l'année courante")
+
+svg2.append('circle')
+	.attr('cx', 30)
+	.attr('cy', 130	)
+	.attr('r', "10px")
+	.attr('fill', '#029bf4')
+	.style('opacity',0.4)
+
+svg2.append('text')
+	.attr('x', 70)
+	.attr('y', 135)
+	.style("font-size", 15)
+	.text("Ville non-étape de l'année courante")
+
+svg2.append('line')
+	.attr('x1', 4)
+	.attr('y1', 170)
+	.attr('x2', 56)
+	.attr('y2', 170)
+	.style("stroke", "#252525")
+	.style("stroke-width", 2)
+
 
 let bt_fr = document.getElementById("bt_fr");
 let bt_eu = document.getElementById("bt_eu");
@@ -308,26 +385,42 @@ function clickeu(){
 		})
 })*/
 
+svg2.append('text')
+	.attr('x', 70)
+	.attr('y', 175)
+	.style("font-size", 15)
+	.text("Étape de l'année courante")
+
+
 function slideOne(){
     if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
         sliderOne.value = parseInt(sliderTwo.value) - minGap;
     }
-	console.log("toto")
     displayValOne.textContent = sliderOne.value;
-	if (guerre.includes(sliderOne.value)){
-
+	if (guerre.includes(parseInt(sliderOne.value))){
+		$("#guerre").html("Pas de données cette année")
+		$("#annee_info").html("")
+		etape.selectAll("path")
+		.style("opacity", 0)
+	}else{
+		slideTwo()
+		$("#guerre").html("")
 	}
+	let max = 0
 	ville.selectAll("circle")
 	.attr("r", function(f){
 		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)]
+
 		if (valeur == NaN){
 			return "0px";
 		}else{
 			let r = Math.round((5 / 2) * Math.sqrt(valeur));
+			max = Math.max(r, max);
 			return r+"px";
 		}
-
 	})
+	circle1.attr('r', max)
+
     fillColor();
 }
 function slideTwo(){
@@ -335,6 +428,16 @@ function slideTwo(){
         sliderTwo.value = parseInt(sliderOne.value) + minGap;
     }
     displayValTwo.textContent = sliderTwo.value;
+	$("#annee_info").html(sliderTwo.value)
+	if (guerre.includes(parseInt(sliderTwo.value))){
+		$("#guerre").html("Pas de données cette année")
+		etape.selectAll("path")
+		.style("opacity", 0)
+	}else{
+		$("#guerre").html("")
+	}
+	let max = 0
+	let max2 = 0
 	ville.selectAll("circle")
 	.attr("r", function(f){
 		let valeur = f.properties[String(sliderTwo.value)]-f.properties[String(sliderOne.value)]
@@ -342,6 +445,8 @@ function slideTwo(){
 			return "0px";
 		}else{
 			let r = Math.round((5 / 2) * Math.sqrt(valeur));
+			max = Math.max(r, max);
+			max2 = Math.max(parseInt(valeur), max2);
 			return r+"px";
 		}
 	})
@@ -349,7 +454,7 @@ function slideTwo(){
 		if (f.properties[String(sliderTwo.value)]-f.properties[String(sliderTwo.value-1)]){
 			return 1
 		}else{
-			return 0.3
+			return 0.4
 		}
 	})
 	.style("fill", function(f){
@@ -374,6 +479,9 @@ function slideTwo(){
 			return 0
 		}
 	});
+	text1.text(max2+" : Nombre de passage maximum")
+	circle1.attr('r', max)
+	
     fillColor();
 }
 function fillColor(){
@@ -404,13 +512,11 @@ function addEtape(){
 }
 
 function hoverEtape(event){
-	console.log(event.target.parentElement.id)
 	let div = document.getElementById(event.target.parentElement.id)
 	if(event.target.parentElement.id != "liste"){
 		div.style.border = "solid 2px"
 		div.style.borderRadius = "2px"
 		let etapeid = event.target.parentElement.id.slice(5)
-		console.log(etapeid)
 		etape.selectAll("path")
 			.style("opacity", function(f){
 				if (f.properties.annee == parseInt(sliderTwo.value)){
@@ -433,16 +539,39 @@ function outEtape(event){
 	let div = document.getElementById(event.target.parentElement.id)
 	div.style.border = "none"
 	slideTwo()
-	/*etape.selectAll("path")
-	.style("opacity", function(f){
-		if(f.properties.annee == sliderTwo.value){
-			return 1
-		}else{
-			return 0
+}
+
+
+function click(){
+	let annee = 1903
+	if(parseInt(sliderTwo.value) == 2022){
+		annee = 1903
+	}else{
+		annee = parseInt(sliderTwo.value)
+	}
+	let liste = document.getElementById("liste")
+	liste.innerHTML = ""
+
+	intervalle = setInterval(function(){
+		annee+=1
+		if(annee == 2022){
+			clearInterval(intervalle)
 		}
-	})
-	.style("stroke-width", function(f){
-		if (f.properties.annee == parseInt(sliderTwo.value)){return 2}
-		else{return 0}
-	})*/
+
+		$("#slider-2").val(annee)
+		slideTwo()
+	},200)
+}
+
+function clickstop(){
+	clearInterval(intervalle)
+	slideTwo()
+	addEtape()
+}
+
+function clickclear(){
+	clearInterval(intervalle)
+	$("#slider-2").val(2022)
+	slideTwo()
+	addEtape()
 }

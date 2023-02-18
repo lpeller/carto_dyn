@@ -8,6 +8,7 @@
 		<!-- FAVICON + CSS -->
 		<link href="img/tdf_page.png" rel="icon">
 		<link href="https://fonts.googleapis.com/css?family=Bitter|Montserrat&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link href="css/reset.css" rel="stylesheet">
 		<link href="css/main.css" rel="stylesheet">
 	</head>
@@ -154,36 +155,27 @@
 
 				<section>
 					<div class="carte" id="carte1"></div>
+					<div class="info" id="annee_info">2022</div>
+					<div id="guerre"></div>
 					<div id="liste"></div>
-					<div class="info" id="legende">
-						<ul>
-							<li><span></span>Elément 1</li>
-							<li><span></span>Elément 2</li>
-							<li><span></span>Elément 3</li>
-							<li><span></span>Elément 4</li>
-							<li><span></span>Elément 5</li>
-						</ul>
-					</div>
-					<div class="info" id="source">Ceci peut être une source</div>
+					<div id="legende"></div>
 				</section>
+
 				<p class="meta">Ceci est le titre de la carte.</p>
 				<div id = "emprise" class  ="emprise">
 					<button class = "france" id = "bt_fr" onclick="clickfr()">France</button>
 					<button class="europe" id = "bt_eu" onclick="clickeu()" disabled>Europe</button>
 				</div>
+
+				<a class="meta" href="https://www.letour.fr/fr/histoire"><p>© letour.fr</p></a><br>
 				<div class="more">
-					<p>Ceci est un encart</p>
+					Animer l'évolution du Tour de France
+					<button id="button_play" style="border:none"><i class="fa fa-play-circle" style="font-size:40px;color:#e39f24;"></i></button>
+					<button id="button_stop" style="border:none"><i class="fa fa-pause-circle" style="font-size:40px;color:#e39f24;"></i></button>
+					<button id="button_clear" style="border:none"><i class="fa fa-stop-circle" style="font-size:40px;color:#e39f24;"></i></button>
 				</div>
 			</article>
 		</div>
-		<!-- PIED DE PAGE -->
-		<footer>
-			<div>
-				<p>Ceci est un pied de page</p>
-				<hr />
-				<p class="social">Facebook &bull; Youtube &bull; Twitter &bull; Instagram &bull; Snapchat</p>
-			</div>
-		</footer>
 	</body>
 	<!-- LIBRAIRIES JAVASCRIPT D3 & JQUERY -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
