@@ -403,3 +403,36 @@ input[type="range"]:active::-webkit-slider-thumb{
 	font-weight:normal;
 	font-size:12px;
 }
+
+.button_zoom{
+	background-color: #e39f24;
+	color: white;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.button_zoom{
+	background-color: #e39f24;
+	color: white;
+	font-weight: bold;
+	padding: 5px;
+	margin: 2px;
+	border:solid 2px;
+	border-radius: 3px;
+	border-color: #b47809;
+	
+}
+
+.button_zoom:disabled,
+.button[disabled]{
+  background-color: #cccccc;
+  border-color: #7d7d7d;
+}
+
+.button_zoom:hover:not([disabled]){
+	background-color: #dfae53;
+}
+
+.button_zoom:focus:not([disabled]) {
+	background-color: #b47809;
+  }

@@ -103,8 +103,8 @@ export_path = os.getcwd()+"\\etape.geojson"
 with open(export_path, 'w') as json_file_handler:
     json_file_handler.write(json.dumps(etapeJson, indent = 4))
 
-"""export_path = os.getcwd()+"\\ville.geojson"
+export_path = os.getcwd()+"\\ville.geojson"
 with open(export_path, 'w') as json_file_handler:
-    json_file_handler.write(json.dumps(villeJson, indent = 4))"""
+    json_file_handler.write(json.dumps(villeJson, indent = 4))
     
 #print(liste_ville)
