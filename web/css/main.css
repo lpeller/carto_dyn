@@ -436,3 +436,15 @@ input[type="range"]:active::-webkit-slider-thumb{
 .button_zoom:focus:not([disabled]) {
 	background-color: #b47809;
   }
+
+.more i{
+	color:#e39f24;
+  }
+
+.more i:hover{
+	color: #dfae53;
+}
+
+.more i:active{
+	color: #b47809;
+}
