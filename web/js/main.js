@@ -434,6 +434,7 @@ function outEtape(event){
 
 
 function click(){
+	console.log("true")
 	let annee = 1903
 	if(parseInt(sliderTwo.value) == 2022){
 		annee = 1903
@@ -443,6 +444,7 @@ function click(){
 	let liste = document.getElementById("liste")
 	liste.innerHTML = ""
 
+	button_play.removeEventListener('click',click)
 	intervalle = setInterval(function(){
 		annee+=1
 		if(annee == 2022){
@@ -457,6 +459,7 @@ function click(){
 
 function clickstop(){
 	clearInterval(intervalle)
+	button_play.addEventListener('click',click,false)
 	slideTwo()
 	addEtape()
 }
@@ -465,6 +468,7 @@ function clickstop(){
 function clickclear(){
 	clearInterval(intervalle)
 	$("#slider-2").val(2022)
+	button_play.addEventListener('click',click,false)
 	slideTwo()
 	addEtape()
 }
