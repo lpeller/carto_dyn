@@ -19,7 +19,8 @@ Toutes les données relatives à la page web de la carte dynamique sont stockée
 
 ## Présentation de l’interface :
 ![Image](images/site01.png)
-##Fonctionnalités de la carte :
+
+## Fonctionnalités de la carte :
 *Sélection de la plage temporelle :* Le sélecteur temporel permet à l’utilisateur de sélectionner une plage temporelle pour laquelle il veut visualiser le nombre de fois où les villes ont figuré sur le Tour de France. Elles apparaissent alors en cercles bleus sur la carte, et leur taille varie en fonction du nombre de fois où elles ont été traversées par le tour.
 
 *Affichage des étapes : *Pour la date choisie par l’utilisateur avec le bouton de droite du sélecteur temporel, les villes et les étapes du tour de l’année seront mis en valeur, avec les villes en rouge et les étapes entre chaque ville en noir. A droite, un encart affiche toutes les étapes de l’édition du tour, et l’utilisateur peut, en survolant une étape de ce menu avec sa souris, la mettre en valeur sur la carte.
@@ -28,7 +29,7 @@ Toutes les données relatives à la page web de la carte dynamique sont stockée
 
 *Changement d’emprise visuelle : *L’utilisateur a également la possibilité de choisir l’emprise de la carte, à savoir une emprise autour de l’Europe de l’ouest, qui permet de visualiser toutes les villes ayant accueilli le tour (en France, mais également en Allemagne, en Espagne, en Irlande, …), ou une emprise centrée sur le territoire de France métropolitaine, via deux boutons “France” et “Europe” situés sous la carte.
 
-##Améliorations possibles :
+## Améliorations possibles :
 *Changement de taille de légende :* La légende, notamment pour la taille maximum des cercles proportionnels, est adaptative en fonction de ce qui est représenté sur la carte. Cependant, lors du changement d’échelle par les boutons “France” et “Europe”, la légende ne s’adapte pas à la nouvelle échelle. En effet, elle est calibrée sur l’échelle “Europe” et ne change pas lors du zoom sur la France. Il aurait suffit, lors de l'événement clic sur un des deux boutons, de sélectionner la taille maximale du cercle présentes sur la carte. La gestion de la taille de la légende est uniquement gérée lors du déplacement du sélecteur temporel.
 
 *Affichage des noms des villes au survol :* Afin de rendre les données plus lisibles, il pourrait être ajouté une fonctionnalité permettant d’afficher les noms des villes quand un cercle est survolé par la souris de l’utilisateur sur la carte, afin de se situer plus facilement. Cette fonctionnalité peut être facilement ajoutée en ajoutant un tooltip de type mouseover.
