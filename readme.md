@@ -19,7 +19,6 @@ Toutes les données relatives à la page web de la carte dynamique sont stockée
 
 ## Présentation de l’interface :
 ![Image](images/site01.png)
-
 ##Fonctionnalités de la carte :
 *Sélection de la plage temporelle :* Le sélecteur temporel permet à l’utilisateur de sélectionner une plage temporelle pour laquelle il veut visualiser le nombre de fois où les villes ont figuré sur le Tour de France. Elles apparaissent alors en cercles bleus sur la carte, et leur taille varie en fonction du nombre de fois où elles ont été traversées par le tour.
 
