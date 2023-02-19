@@ -1,4 +1,4 @@
-# Cartographie dynamique :Le tour de France de 1903 à 2022
+# Cartographie dynamique : Le tour de France de 1903 à 2022
 *Projet réalisé dans le cadre du cours de cartographie dynamique du M2 Carthageo, par Aymeric Dutremble et Louis Peller*
 
 ## Description rapide de la carte :
