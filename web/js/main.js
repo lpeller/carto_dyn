@@ -90,6 +90,24 @@ etape.selectAll("path")
 	.style("stroke-width", 2)
 	.style("fill","transparent");
 
+
+const echelle_eu = svg.append("g");
+
+const echelle_fr = svg.append("g");
+
+echelle_eu.selectAll("path")
+	.data(scale_eu.features)
+	.enter()
+	.append("path")
+	.attr("d", map)
+	.style("stroke", "#252525")
+	.style("stroke-width", 5);
+
+echelle_eu.append('text')
+	.text("200 km")
+	.attr("x", 690)
+	.attr("y", 688);
+
 window.onload = function(){
     slideOne();
     slideTwo();
@@ -203,10 +221,24 @@ function clickfr(){
 	d3.select('#carte1')
 		.transition()
 		.call(zoom.transform, transform);
+
+	echelle_fr.selectAll("path")
+		.data(scale_fr.features)
+		.enter()
+		.append("path")
+		.attr("d", map)
+		.style("stroke", "#252525")
+		.style("stroke-width", 3);
+
+	echelle_fr.append('text')
+		.text("200 km")
+		.attr("x", 497)
+		.attr("y", 618);
 }
 
 
 function clickeu(){
+
 	document.getElementById('bt_fr').disabled=false;
 	bt_eu.disabled=true;
 	let zoom = d3.zoom()
@@ -216,6 +248,9 @@ function clickeu(){
 	d3.select('#carte1')
 		.transition()
 		.call(zoom.transform, transform);
+
+	echelle_fr.selectAll("text").remove();
+	echelle_fr.selectAll("path").remove();
 }
 
 svg2.append('text')
