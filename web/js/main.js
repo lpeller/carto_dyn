@@ -234,6 +234,9 @@ function clickfr(){
 		.text("200 km")
 		.attr("x", 497)
 		.attr("y", 618);
+
+	echelle_eu.selectAll("text").remove();
+	echelle_eu.selectAll("path").remove();
 }
 
 
@@ -248,6 +251,19 @@ function clickeu(){
 	d3.select('#carte1')
 		.transition()
 		.call(zoom.transform, transform);
+
+	echelle_eu.selectAll("path")
+		.data(scale_eu.features)
+		.enter()
+		.append("path")
+		.attr("d", map)
+		.style("stroke", "#252525")
+		.style("stroke-width", 5);
+
+	echelle_eu.append('text')
+		.text("200 km")
+		.attr("x", 690)
+		.attr("y", 688);
 
 	echelle_fr.selectAll("text").remove();
 	echelle_fr.selectAll("path").remove();
