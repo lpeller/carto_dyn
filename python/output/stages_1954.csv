@@ -1,0 +1,26 @@
+"","id","n","annee","depart","arrivee","winner"
+"1",1,"Étape 1","08/07/1954","Amsterdam","Anvers","WOUT WAGTMANS"
+"2",2,"Étape 2","09/07/1954","Anvers","Lille","LOUISON BOBET"
+"3",3,"Étape 3","10/07/1954","Lille","Rouen","MARCEL DUSSAULT"
+"4",4,"Étape 4.1","11/07/1954","Rouen","Les Essarts",NA
+"5",5,"Étape 4.2","11/07/1954","Les Essarts","Caen","FERDI KUBLER"
+"6",6,"Étape 5","12/07/1954","Caen","Saint-Brieuc","DOMINIQUE FORLINI"
+"7",7,"Étape 6","13/07/1954","Saint-Brieuc","Brest","JACQUES VIVIER"
+"8",8,"Étape 7","14/07/1954","Brest","Vannes","FRED DE BRUYNE"
+"9",9,"Étape 8","15/07/1954","Vannes","Angers","HENK FAANHOF"
+"10",10,"Étape 9","16/07/1954","Angers","Bordeaux","GILBERT BAUVIN"
+"11",11,"Étape 10","18/07/1954","Bordeaux","Bayonne","STAN OCKERS"
+"12",12,"Étape 11","19/07/1954","Bayonne","Pau","GILBERT BAUVIN"
+"13",13,"Étape 12","20/07/1954","Pau","Luchon","FRED DE BRUYNE"
+"14",14,"Étape 13","21/07/1954","Luchon","Toulouse","FERDI KUBLER"
+"15",15,"Étape 14","22/07/1954","Toulouse","Millau","DOMINIQUE FORLINI"
+"16",16,"Étape 15","23/07/1954","Millau","Le Puy en Velay","JEAN FORESTIER"
+"17",17,"Étape 16","24/07/1954","Le Puy en Velay","Lyon","LUCIEN LAZARIDES"
+"18",18,"Étape 17","26/07/1954","Lyon","Grenoble","LOUISON BOBET"
+"19",19,"Étape 18","27/07/1954","Grenoble","Briançon","JEAN DOTTO"
+"20",20,"Étape 19","28/07/1954","Briançon","Aix-les-Bains","LUCIEN TEISSEIRE"
+"21",21,"Étape 20","29/07/1954","Aix-les-Bains","Besançon",NA
+"22",22,"Étape 21.1","30/07/1954","Besançon","Epinal","FRED DE BRUYNE"
+"23",23,"Étape 21.2","30/07/1954","Epinal","Nancy","ROBERT VARNAJO"
+"24",24,"Étape 22","31/07/1954","Nancy","Troyes",NA
+"25",25,"Étape 23","01/08/1954","Troyes","Paris",NA

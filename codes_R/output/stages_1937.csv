@@ -1,0 +1,32 @@
+"","id","n","annee","depart","arrivee","winner"
+"1",1,"Étape 1","30/06/1937","Paris","Lille","JEAN MAJERUS"
+"2",2,"Étape 2","01/07/1937","Lille","Charleville-Mézières","MAURICE ARCHAMBAUD"
+"3",3,"Étape 3","02/07/1937","Charleville-Mézières","Metz","WALTER GENERATI"
+"4",4,"Étape 4","03/07/1937","Metz","Belfort","ERICH BAUTZ"
+"5",5,"Étape 5.1","04/07/1937","Belfort","Lons-le-Saunier",NA
+"6",6,"Étape 5.2","04/07/1937","Lons-le-Saunier","Champagnole","GUSTAAF DELOOR"
+"7",7,"Étape 5.3","04/07/1937","Champagnole","Genève","GINO BARTALI"
+"8",8,"Étape 6","06/07/1937","Genève","Aix-les-Bains","OTTO WECKERLING"
+"9",9,"Étape 7","07/07/1937","Aix-les-Bains","Grenoble","ROGER LAPEBIE"
+"10",10,"Étape 8","08/07/1937","Grenoble","Briançon","FÉLICIEN VERVAECKE"
+"11",11,"Étape 9","09/07/1937","Briançon","Digne-les-Bains",NA
+"12",12,"Étape 10","11/07/1937","Digne-les-Bains","Nice",NA
+"13",13,"Étape 11.1","13/07/1937","Nice","Toulon",NA
+"14",14,"Étape 11.2","13/07/1937","Toulon","Marseille",NA
+"15",15,"Étape 12.1","14/07/1937","Marseille","Nimes","JULIAN BERRENDERO"
+"16",16,"Étape 12.2","14/07/1937","Nimes","Montpellier","PAUL CHOCQUE"
+"17",17,"Étape 13.1","15/07/1937","Montpellier","Narbonne",NA
+"18",18,"Étape 13.2","15/07/1937","Narbonne","Perpignan",NA
+"19",19,"Étape 14.1","17/07/1937","Perpignan","Bourg-Madame",NA
+"20",20,"Étape 14.2","17/07/1937","Bourg-Madame","Ax-les-Thermes","EDWARD VISSERS"
+"21",21,"Étape 14.3","17/07/1937","Ax-les-Thermes","Luchon",NA
+"22",22,"Étape 15","19/07/1937","Luchon","Pau",NA
+"23",23,"Étape 16","21/07/1937","Pau","Bordeaux",NA
+"24",24,"Étape 17.1","22/07/1937","Bordeaux","Royan",NA
+"25",25,"Étape 17.2","22/07/1937","Royan","Saintes",NA
+"26",26,"Étape 17.3","22/07/1937","Saintes","La Rochelle",NA
+"27",27,"Étape 18.1","23/07/1937","La Rochelle","La Roche-sur-Yon",NA
+"28",28,"Étape 18.2","23/07/1937","La Roche-sur-Yon","Rennes",NA
+"29",29,"Étape 19.1","24/07/1937","Rennes","Vire",NA
+"30",30,"Étape 19.2","24/07/1937","Vire","Caen",NA
+"31",31,"Étape 20","25/07/1937","Caen","Paris",NA

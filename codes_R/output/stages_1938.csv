@@ -1,0 +1,31 @@
+"","id","n","annee","depart","arrivee","winner"
+"1",1,"Étape 1","05/07/1938","Paris","Caen","WILLI OBERBECK"
+"2",2,"Étape 2","06/07/1938","Caen","Saint-Brieuc","JEAN MAJERUS"
+"3",3,"Étape 3","07/07/1938","Saint-Brieuc","Nantes","GERRIT SCHULTE"
+"4",4,"Étape 4.1","08/07/1938","Nantes","La Roche-sur-Yon",NA
+"5",5,"Étape 4.2","08/07/1938","La Roche-sur-Yon","La Rochelle","ELOI MEULENBERG"
+"6",6,"Étape 4.3","08/07/1938","La Rochelle","Royan",NA
+"7",7,"Étape 5","10/07/1938","Royan","Bordeaux","THÉO MIDDELKAMP"
+"8",8,"Étape 6.1","11/07/1938","Bordeaux","Arcachon","FÉLICIEN VERVAECKE"
+"9",9,"Étape 6.2","11/07/1938","Arcachon","Bayonne","JEAN FRECHAUT"
+"10",10,"Étape 7","12/07/1938","Bayonne","Pau",NA
+"11",11,"Étape 8","14/07/1938","Pau","Luchon","GINO BARTALI"
+"12",12,"Étape 9","16/07/1938","Luchon","Perpignan","JEAN FRECHAUT"
+"13",13,"Étape 10.1","17/07/1938","Perpignan","Narbonne","DANTE GIANELLO"
+"14",14,"Étape 10.2","17/07/1938","Narbonne","Béziers","GINO BARTALI"
+"15",15,"Étape 10.3","17/07/1938","Béziers","Montpellier","MARCEL KINT"
+"16",16,"Étape 11","18/07/1938","Montpellier","Marseille","MARCEL KINT"
+"17",17,"Étape 12","19/07/1938","Marseille","Cannes",NA
+"18",18,"Étape 13","21/07/1938","Cannes","Digne-les-Bains","MARCEL KINT"
+"19",19,"Étape 14","22/07/1938","Digne-les-Bains","Briançon","FABIEN GALATEAU"
+"20",20,"Étape 15","23/07/1938","Briançon","Aix-les-Bains",NA
+"21",21,"Étape 16","25/07/1938","Aix-les-Bains","Besançon","ANTONIN MAGNE"
+"22",21,"Étape 16","25/07/1938","Aix-les-Bains","Besançon","ANDRÉ LEDUCQ"
+"23",22,"Étape 17.2","26/07/1938","Belfort","Strasbourg",NA
+"24",23,"Étape 17.1","26/07/1938","Besançon","Belfort",NA
+"25",24,"Étape 18","27/07/1938","Strasbourg","Metz",NA
+"26",25,"Étape 19","28/07/1938","Metz","Reims",NA
+"27",26,"Étape 20.1","30/07/1938","Reims","Laon",NA
+"28",27,"Étape 20.2","30/07/1938","Laon","St-Quentin",NA
+"29",28,"Étape 20.3","30/07/1938","St-Quentin","Lille",NA
+"30",29,"Étape 21","31/07/1938","Lille","Paris",NA

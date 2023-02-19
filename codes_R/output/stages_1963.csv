@@ -1,0 +1,24 @@
+"","id","n","annee","depart","arrivee","winner"
+"1",1,"Étape 1","23/06/1963","Paris","Épernay","EDDY PAUWELS"
+"2",2,"Étape 2.1","24/06/1963","Reims","Jambes",NA
+"3",3,"Étape 2.2","24/06/1963","Jambes","Jambes","SEAMUS ELLIOTT"
+"4",4,"Étape 3","25/06/1963","Jambes","Roubaix","FRANS MELCKENBEECK"
+"5",5,"Étape 4","26/06/1963","Roubaix","Rouen","ANTONIO BAILETTI"
+"6",6,"Étape 5","27/06/1963","Rouen","Rennes",NA
+"7",7,"Étape 6.1","28/06/1963","Rennes","Angers","JAN JANSSEN"
+"8",8,"Étape 6.2","28/06/1963","Angers","Angers","RIK VAN LOOY"
+"9",9,"Étape 7","29/06/1963","Angers","Limoges","GIUSEPPE 'PINO' CERAMI"
+"10",10,"Étape 8","30/06/1963","Limoges","Bordeaux","JACQUES ANQUETIL"
+"11",11,"Étape 9","01/07/1963","Bordeaux","Pau","GUY IGNOLIN"
+"12",12,"Étape 10","02/07/1963","Pau","Bagnères-de-Bigorre","ANDRÉ DARRIGADE"
+"13",13,"Étape 11","03/07/1963","Bagnères-de-Bigorre","Luchon","RIK VAN LOOY"
+"14",14,"Étape 12","04/07/1963","Luchon","Toulouse","GUY IGNOLIN"
+"15",15,"Étape 13","06/07/1963","Toulouse","Aurillac","FEDERICO BAHAMONTES"
+"16",16,"Étape 14","07/07/1963","Aurillac","Saint-Etienne","FERNANDO MANZANEQUE"
+"17",17,"Étape 15","08/07/1963","Saint-Etienne","Grenoble","JACQUES ANQUETIL"
+"18",18,"Étape 16","09/07/1963","Grenoble","val_d_isere","FRANS BRANDS"
+"19",19,"Étape 17","10/07/1963","val_d_isere","Chamonix","JACQUES ANQUETIL"
+"20",20,"Étape 18","11/07/1963","Chamonix","Lons-le-Saunier","ROGER DE BREUKER"
+"21",21,"Étape 19","12/07/1963","Arbois","Besançon","RIK VAN LOOY"
+"22",22,"Étape 20","13/07/1963","Besançon","Troyes",NA
+"23",23,"Étape 21","14/07/1963","Troyes","Paris",NA

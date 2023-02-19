@@ -1,0 +1,25 @@
+"","id","n","annee","depart","arrivee","winner"
+"1",1,"Étape 1","24/06/1962","Nancy","Spa","RUDI ALTIG"
+"2",2,"Étape 2.1","25/06/1962","Spa","Herenthals",NA
+"3",3,"Étape 2.2","25/06/1962","Herenthals","Herenthals","RUDI ALTIG"
+"4",4,"Étape 3","26/06/1962","Bruxelles","Amiens","WILLY VANDEN BERGHEN"
+"5",5,"Étape 4","27/06/1962","Amiens","Le Havre","EMILE DAEMS"
+"6",6,"Étape 5","28/06/1962","Pont l'Evêque","Saint-Malo","ROBERT CAZALA"
+"7",7,"Étape 6","29/06/1962","Dinard","Brest","HUBERTUS ZILVERBERG"
+"8",8,"Étape 7","30/06/1962","Quimper","Saint Nazaire",NA
+"9",9,"Étape 8.1","01/07/1962","Saint Nazaire","Luçon","ANTONIO BAILETTI"
+"10",10,"Étape 8.2","01/07/1962","Luçon","La Rochelle","WILLY VANNITSEN"
+"11",11,"Étape 9","02/07/1962","La Rochelle","Bordeaux","EDDY PAUWELS"
+"12",12,"Étape 10","03/07/1962","Bordeaux","Bayonne","ROBERT CAZALA"
+"13",13,"Étape 11","04/07/1962","Bayonne","Pau","FEDERICO BAHAMONTES"
+"14",14,"Étape 12","05/07/1962","Pau","Saint Gaudens","JEAN STABLINSKI"
+"15",15,"Étape 13","06/07/1962","Luchon","Superbagnères","WILLY VANNITSEN"
+"16",16,"Étape 14","07/07/1962","Luchon","Carcassonne","EMILE DAEMS"
+"17",17,"Étape 15","08/07/1962","Carcassonne","Montpellier","RUDI ALTIG"
+"18",18,"Étape 16","09/07/1962","Montpellier","Aix en Provence","EMILE DAEMS"
+"19",19,"Étape 17","10/07/1962","Aix en Provence","Antibes","RAYMOND POULIDOR"
+"20",20,"Étape 18","11/07/1962","Antibes","Briançon","JACQUES ANQUETIL"
+"21",21,"Étape 19","12/07/1962","Briançon","Aix-les-Bains","DINO BRUNI"
+"22",22,"Étape 20","13/07/1962","Bourgoin-Jallieu","Lyon","RINO BENEDETTI"
+"23",23,"Étape 21","14/07/1962","Lyon","Nevers",NA
+"24",24,"Étape 22","15/07/1962","Nevers","Paris",NA
